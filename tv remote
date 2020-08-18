@@ -2,6 +2,23 @@ from tkinter import *
 from tkinter import Button
 
 import tkinter as tk
+import random
+from textblob import TextBlob
+import datetime
+import cv2
+import numpy as np
+import os
+import sys
+from functools import partial
+import time
+import pathlib
+
+import vlc
+import tkinter as tk
+from tkinter import ttk
+from tkinter.font import Font
+from tkinter.filedialog import askopenfilename
+from PIL import ImageTk, Image
 def buttonON():
     print("welcone to telivison")
 def double_click(event_button1):
@@ -23,19 +40,19 @@ def button1(event=1):
 def button2(event=2):
     global double_click_flag
     if double_click_flag:
-       print("your watching geminitv")
+       print("2.your watching geminitv")
        double_click_flag = False
     else:
-        print('fashion')
+        print('22.fashion')
        
 def button3():
     
     global double_click_flag
     if double_click_flag:
-       print("your watching ABN")
+       print("3.your watching ABN")
        double_click_flag = False
     else:
-      print("your watching tv5")
+      print("33.your watching tv5")
 #def double_click(event):
 
     #global double_click_flag
@@ -45,9 +62,9 @@ def button4():
    
     global double_click_flag
     if double_click_flag:
-       print("your watching Maa music")
+       print("4.your watching Maa music")
     else:
-         print("your watching zeetv")
+         print("44.your watching zeetv")
 #def double_click(event):
 
  #   global double_click_flag
@@ -56,9 +73,9 @@ def button5():
    
     global double_click_flag
     if double_click_flag:
-       print("your watching star sports")
+       print("5.your watching star sports")
     else:
-         print("invalid")
+         print("55.invalid")
 #def double_click(event):
 
  #   global double_click_flag
@@ -67,9 +84,9 @@ def button6():
     
     global double_click_flag
     if double_click_flag:
-       print("your watching ETV ")
+       print("6.your watching ETV ")
     else:
-        print(" invalid")
+        print("66. invalid")
 
 #def double_click(event):
 
@@ -79,9 +96,9 @@ def button7():
     
     global double_click_flag
     if double_click_flag:
-       print("your watching animal planet")
+       print("7.your watching animal planet")
     else:
-        print("your watching discovry")
+        print("77.your watching discovry")
 
 #def double_click(event):
 
@@ -91,9 +108,9 @@ def button8():
    
     global double_click_flag
     if double_click_flag:
-       print("your watching BBC")
+       print("8.your watching BBC")
     else:
-         print("your watching Gemini music")
+         print("88.your watching Gemini music")
 #def double_click(event):
 
 #    global double_click_flag
@@ -103,9 +120,9 @@ def button9():
    
     global double_click_flag
     if double_click_flag:
-       print("your watching pogo")
+       print("9.your watching pogo")
     else:
-         print("Catton")
+         print("99.Catton")
         
 #def double_click(event):
 
@@ -116,9 +133,9 @@ def button0():
     
     global double_click_flag
     if double_click_flag:
-       print("your watching Sitinews")
+       print("0.your watching Sitinews")
     else:
-        print("your watching sitichannal")
+        print("10.your watching sitichannal")
 
 
 def buttoninfo():
@@ -155,44 +172,558 @@ def buttonav():
 
 
 def buttonmenu():
-    print("1. Press the HOME button"
-           " Navigate to  select Settings."
-             "Select Channel Setup  choose Digital Setup."
-             "Select Audio Set-Up."
-             "Select Audio Settings  choose your preferred setting")
+    print("........Menu...........")
 
+    def language():
+        #print("New File!")
+        
+
+        top=Tk()
+        b = Button(top,text = "Simple") 
+
+        top.geometry("300x150")  
+        radio = IntVar()  
+        #lbl = Label(text = "Favourite programming language:")  
+        #lbl.pack()  
+        R1 = Radiobutton(top, text="C", variable=radio, value=1,  
+                          command=language)  
+        R1.pack( anchor = W )  
+          
+        R2 = Radiobutton(top, text="C++", variable=radio, value=2,  
+                          command=language)  
+        R2.pack( anchor = W )  
+          
+        R3 = Radiobutton(top, text="Java", variable=radio, value=3,  
+                          command=language)  
+        R3.pack( anchor = W)  
+           
+        #label = Label(top)  
+        #label.pack()  
+        top.mainloop()
+    def OpenFile():
+        name = askopenfilename()
+        print(name)
+    def About():
+        print("its develeped by the phasion\n"
+              "using requirments:\n"
+              "by using of tkinter to develop the code\n"
+              "1.creating buttonds\n"
+              "2.labels\n"
+              "3.check boxs\n"
+              "4.files\n"
+              "5.camera\n"
+              "6.time using window recognation\n"
+              "7.define terms of buttons\n"
+              "8.frames\n"
+              "9.text feild\n"
+              "10.etc")
+    def wiffi():
+        top = Tk()  
+      
+        top.geometry("400x250")  
+          
+        #creating label  
+        uname = Label(top, text = "Username").place(x = 30,y = 50)  
+          
+        #creating label  
+        password = Label(top, text = "Password").place(x = 30, y = 90)  
+          
+          
+        sbmitbtn = Button(top, text = "Submit",activebackground = "pink", activeforeground = "blue").place(x = 30, y = 120)  
+          
+        e1 = Entry(top,width = 20).place(x = 100, y = 50)  
+          
+          
+        e2 = Entry(top, width = 20).place(x = 100, y = 90)  
+          
+          
+        top.mainloop()
+    def sound():
+        print("sound and volume settings")
+    def picture():
+        print("picture settings")
+    def screen():
+        print("screensetings")
+    root = Tk()
+    menu = Menu(root)
+    root.config(menu=menu)
+    filemenu = Menu(menu)
+    menu.add_cascade(label="settings", menu=filemenu)
+
+    filemenu.add_command(label="language", command=language)
+    filemenu.add_command(label="Open...", command=OpenFile)
+    filemenu.add_separator()
+    filemenu.add_command(label="wiffi", command=wiffi)
+
+    generalmenu = Menu(menu)
+    menu.add_cascade(label="general", menu=generalmenu)
+    generalmenu.add_command(label="sound", command=sound)
+    generalmenu.add_command(label="picture", command=picture)
+    generalmenu.add_command(label="screen", command=screen)
+
+
+
+
+
+    helpmenu = Menu(menu)
+    menu.add_cascade(label="Help", menu=helpmenu)
+    helpmenu.add_command(label="About...", command=About)
+
+    Exitmenu = Menu(menu)
+    menu.add_cascade(label="Exit", menu=Exitmenu)
+    Exitmenu.add_command(label="Exit", command=root.quit)
+
+    mainloop()
 
 def buttoneye():
     print("set your settings  visible to yoour eyes")
 
 
 def buttonb():
-    print("in visible")
+    #print("in visible")
+    cap = cv2.VideoCapture(0)
+
+    while(True):
+        ret, frame = cap.read()
+        cv2.imshow('frame',frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
 
 
 def buttonc():
-    print("invisible")
+        print("invisible")
+
+        def remove_match_char(list1, list2): 
+
+                for i in range(len(list1)) : 
+                        for j in range(len(list2)) : 
+
+                               
+                                if list1[i] == list2[j] : 
+                                        c = list1[i] 
+
+                                        
+                                        list1.remove(c) 
+                                        list2.remove(c) 
+
+                                       
+                                        list3 = list1 + ["*"] + list2 
+
+                                        return [list3, True] 
+
+             
+                list3 = list1 + ["*"] + list2 
+                return [list3, False] 
 
 
+        def tell_status() : 
+                
+                p1 = Player1_field.get() 
+
+                p1 = p1.lower() 
+
+                p1.replace(" ", "") 
+
+                p1_list = list(p1) 
+
+                p2 = Player2_field.get() 
+                p2 = p2.lower() 
+                p2.replace(" ", "") 
+                p2_list = list(p2) 
+
+                proceed = True
+                
+              
+                while proceed : 
+
+                        ret_list = remove_match_char(p1_list, p2_list) 
+
+                        con_list = ret_list[0] 
+
+                        proceed = ret_list[1] 
+
+                        star_index = con_list.index("*") 
+
+                        p1_list = con_list[ : star_index] 
+
+                        p2_list = con_list[star_index + 1 : ] 
+
+
+                count = len(p1_list) + len(p2_list) 
+
+                result = ["Friends", "Love", "Affection", "Marriage", "Enemy", "Siblings"] 
+
+                
+                while len(result) > 1 : 
+
+                        
+                        split_index = (count % len(result) - 1) 
+
+                       
+                        if split_index >= 0 : 
+
+                                right = result[split_index + 1 : ] 
+                                left = result[ : split_index] 
+
+                                result = right + left 
+
+                        else : 
+                                result = result[ : len(result) - 1] 
+
+             
+                Status_field.insert(10, result[0]) 
+
+
+        
+        def clear_all() : 
+                Player1_field.delete(0, END) 
+                Player2_field.delete(0, END) 
+                Status_field.delete(0, END) 
+                
+                Player1_field.focus_set() 
+
+
+        if __name__ == "__main__" : 
+                
+             
+                root = Tk() 
+                
+                root.configure(background = 'light green') 
+                
+                root.geometry("350x125") 
+                
+                root.title("Flames Game") 
+                        
+                
+                label1 = Label(root, text = "Male ", 
+                                        fg = 'black', bg = 'dark green') 
+                
+                label2 = Label(root, text = "Female ", 
+                                        fg = 'black', bg = 'dark green') 
+                        
+                label3 = Label(root, text = "Relationship Status: ", 
+                                        fg = 'black', bg = 'red') 
+
+               
+                label1.grid(row = 1, column = 0, sticky ="E") 
+                label2.grid(row = 2, column = 0, sticky ="E") 
+                label3.grid(row = 4, column = 0, sticky ="E") 
+
+            
+                Player1_field = Entry(root) 
+                Player2_field = Entry(root) 
+                Status_field = Entry(root) 
+
+                
+                Player1_field.grid(row = 1, column = 1, ipadx ="50") 
+                Player2_field.grid(row = 2, column = 1, ipadx ="50") 
+                Status_field.grid(row = 4, column = 1, ipadx ="50") 
+
+                button1 = Button(root, text = "Submit", bg = "red", 
+                                                fg = "black", command = tell_status) 
+                
+              
+                button2 = Button(root, text = "Clear", bg = "red", 
+                                                fg = "black", command = clear_all) 
+
+               
+                button1.grid(row = 3, column = 1) 
+                button2.grid(row = 5, column = 1) 
 def buttonview():
-    print("nakthelidu")
+        print("")
+        class PyPlayer(tk.Frame):
+                def __init__(self, container, container_instance, title=None):
+                    tk.Frame.__init__(self, container_instance)
+                    self.container = container
+                    self.container_instance = container_instance
+                    self.initial_directory = pathlib.Path(os.path.expanduser("~"))
+                    self.menu_font = Font(family="Verdana", size=20)
+                    self.default_font = Font(family="Times New Roman", size=16)
 
+                    
+                    self.vlc_instance, self.vlc_media_player_instance = self.create_vlc_instance()
+
+                    
+                    self.menubar = tk.Menu(self.container_instance)
+                    self.menubar.config(font=self.menu_font)
+
+                    
+                    self.file_menu = tk.Menu(self.menubar, tearoff=0)
+                    self.create_file_menu()
+
+                
+                    self.list_menu = tk.Menu(self.menubar, tearoff=0)
+                    self.create_list_menu()
+
+                    
+                    self.menubar.add_command(label="More", command=None)
+                    self.menubar.add_command(label="Debug", command=self._debug)
+                    self.menubar.add_command(label="Quit", command=self.close)
+                    self.container_instance.config(menu=self.menubar)
+                
+                    
+                    self.video_panel = ttk.Frame(self.container_instance)
+                    self.canvas = tk.Canvas(self.video_panel, background='black')
+                    self.canvas.pack(fill=tk.BOTH, expand=1)
+                    self.video_panel.pack(fill=tk.BOTH, expand=1)
+
+                    
+                    self.create_control_panel()
+
+                def _debug(self):
+                    """Debugging."""
+                    import pdb; pdb.set_trace()
+                    pass
+
+                def create_control_panel(self):
+                    """Add control panel."""
+                    control_panel = ttk.Frame(self.container_instance)
+                    pause = ttk.Button(control_panel, text="Pause", command=self.pause)
+                    play = ttk.Button(control_panel, text="Play", command=self.play)
+                    stop = ttk.Button(control_panel, text="Stop", command=self.stop)
+                    volume = ttk.Button(control_panel, text="Volume", command=None)
+                    pause.pack(side=tk.LEFT)
+                    play.pack(side=tk.LEFT)
+                    stop.pack(side=tk.LEFT)
+                    volume.pack(side=tk.LEFT)
+                    control_panel.pack(side=tk.BOTTOM)
+
+                def create_vlc_instance(self):
+                    """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
+                    vlc_instance = vlc.Instance()
+                    vlc_media_player_instance = vlc_instance.media_player_new()
+                    self.container_instance.update()
+                    return vlc_instance, vlc_media_player_instance
+
+                def get_handle(self):
+                    return self.video_panel.winfo_id()
+
+                def play(self):
+                    """Play a file."""
+                    if not self.vlc_media_player_instance.get_media():
+                        self.open()
+                    else:
+                        if self.vlc_media_player_instance.play() == -1:
+                            pass
+
+                def close(self):
+                    """Close the window."""
+                    self.container.delete_window()
+
+                def pause(self):
+                    """Pause the player."""
+                    self.vlc_media_player_instance.pause()
+
+                def stop(self):
+                    """Stop the player."""
+                    self.vlc_media_player_instance.stop()
+
+                def open(self):
+                    """New window allowing user to select a file and play."""
+                    file = askopenfilename(
+                        initialdir=self.initial_directory,
+                        filetypes=(
+                            ("Audio Video Interleave", "*.avi"),
+                            ("Matroska", "*.mkv"),
+                        )
+                    )
+                    if isinstance(file, tuple):
+                        return
+                    if os.path.isfile(file):
+                        self.play_film(file)
+
+                def play_film(self, file):
+                    
+                    directory_name = os.path.dirname(file)
+                    file_name = os.path.basename(file)
+                    self.Media = self.vlc_instance.media_new(
+                        str(os.path.join(directory_name, file_name))
+                    )
+                    self.Media.get_meta()
+                    self.vlc_media_player_instance.set_media(self.Media)
+                    self.vlc_media_player_instance.set_xwindow(self.get_handle())
+                    self.play()
+
+                @staticmethod
+                def get_film_name(film) -> str:
+                    
+                    return film.split('/')[-1]
+
+                def create_file_menu(self):
+                    """Create file menu."""
+                    self.file_menu.add_command(label="Open", command=self.open, font=self.default_font, accelerator="ctrl + o")
+                    self.file_menu.add_command(label="Search", command=None, font=self.default_font, accelerator="ctrl + s")
+                    self.file_menu.add_separator()
+                    self.file_menu.add_command(label="Quit", command=self.close, font=("Verdana", 14, "bold"), accelerator="ctrl + q")
+                    self.menubar.add_cascade(label="File", menu=self.file_menu)
+
+                def create_film_entry(self, film):
+                    """Adds an entry to the `list_menu` for a given film."""
+                    self.list_menu.add_command(
+                        label=self.get_film_name(film),
+                        command=partial(self.play_film, film),
+                        font=self.default_font
+                    )
+
+                def create_list_menu(self):
+                    """List all films present on system."""
+                    films = []
+                    try:
+                        for root, dirs, files in os.walk(str(self.initial_directory)):
+                            for file in files:
+                                if file.endswith(('.mkv', '.avi')) and not file.endswith(('.sample.mkv', '.sample.avi')):
+                                    films.append(os.path.join(root, file))
+                    except TypeError:
+                        raise("Error")
+                    films.sort(key=lambda s: s.lower().split('/')[-1])
+                    [self.create_film_entry(film) for film in films]
+                    self.menubar.add_cascade(label="All Films", menu=self.list_menu)
+
+
+        class BaseTkContainer:
+                def __init__(self):
+                    self.tk_instance = tk.Tk()
+                    self.tk_instance.title("py player")
+                    self.tk_instance.protocol("WM_DELETE_WINDOW", self.delete_window)
+                    self.tk_instance.geometry("400x400") 
+                    self.tk_instance.configure(background='black')
+                    self.theme = ttk.Style()
+                    self.theme.theme_use("alt")
+
+                def delete_window(self):
+                    tk_instance = self.tk_instance
+                    tk_instance.quit()
+                    tk_instance.destroy()
+                    os._exit(1)
+                
+                def __repr__(self):
+                    return "Base tk Container"
+        root = BaseTkContainer()
+        player = PyPlayer(root, root.tk_instance, title="pyplayer")
+        root.tk_instance.mainloop()
+        
+
+        root.mainloop()
+
+   
 
 def buttonarc():
-    print("ARC 1 means 16:9 broadcasts will be shown correctly in widescreen (and full screen). 4:3 broadcast will show with black bars on the sides - the way they were filmed and are being broadcast in.")
+    print('Hello human what is your name?')
+    name = input()
+    print('Do you have nickname?')
+    ans = input()
+    if 'y' in ans.lower():
+       nickname = input('whatis your nickname: ')
+       print('Good to meet you ' + nickname)
+    else:
+       nickname = name + name[-1] + 'y'
+       print('I will call you '+nickname)
+
+
+    greetings = [
+	'How are you today ' + nickname +'?',
+	'Howdy ' + nickname + ' how are you feeling?',
+	"What's up " + nickname +'?',
+	'Greetings ' + nickname +', are you well?',
+	'How are things going ' + nickname +'?'
+       ]
+    print(random.choice(greetings))
+    ans = input()
+    blob = TextBlob(ans)
+    
+    if blob.polarity > 0:
+       print('Glad you are doing well')
+    else:
+       print('Sorry to hear that')
+    
+
+    topics = [
+    	'Ai',
+   	'R',
+    	'java',
+      	'html',
+     	'Python',
+   	'Computers',
+      	'Computer games'
+      ]
+    
+    questions = [
+	'What is your take on ',
+	'What do you think about ',
+	'How do you feel about ',
+	'What do you reckon about ',
+	'I would like your opinion on '
+         ]
+    for i in range(0, random.randint(3,4)):
+          question = random.choice(questions)
+          questions.remove(question)
+          topic = random.choice(topics)
+          topics.remove(topic)
+          print(question + topic + '?')
+          ans = input()
+          blob = TextBlob(ans)
+          
+          
+          if blob.polarity > 0.5:
+            print('OMG you really love '+ topic)
+          elif blob.polarity > 0.1:
+            print('Well, you clearly like '+ topic)
+          elif blob.polarity < -0.5:
+            print('Woof, you totally hate '+ topic)
+          elif blob.polarity < -0.5:
+            print("So you don't like "+ topic)
+          else:
+             print('That is a very neutral view on '+ topic)
+         
+          if blob.subjectivity > 0.6:
+             print('and you are so biased')
+          elif blob.subjectivity > 0.3:
+             print('and you are a bit biased')
+          else:
+            print('and you are quite objective')
+
+
+
+    goodbyes = [
+    	'Good talking to you ' + nickname + 'I gotta go now',
+     	'OK I am bored, I will go watch Netflix',
+      	'Bye bye Miss American Pie, I am out',
+    	'Yaaawn . . . I gotta go now',
+     	'Catch ya later, '+ nickname
+     ]
+    print(random.choice(goodbyes))
 
 
 def buttonlists():
-    print("this button is used set of channnels lists")
+   now = datetime.datetime.now()
+   print ("Current date and time : ")
+   print (now.strftime("%Y-%m-%d %H:%M:%S"))
+
 
 
 def buttonsleep():
     print("this button is used to put our tv in sleep mode")
-
+     
 
 def buttonpicture():
     print("this button is used to control your picture visibility")
-
+    #root = Tk() 
+  
+# Adding widgets to the root window 
+    
+    root = Toplevel()
+    Label(root, text = 'Haswanth Tummala', font =( 
+      'Verdana', 15)).pack(side = TOP, pady = 10)
+  
+    canvas = Canvas(root, width = 300, height = 300)  
+    canvas.pack()  
+    img = ImageTk.PhotoImage(Image.open("F:\—Pngtree—space light sun ray light_4961926.png"))  
+    canvas.create_image(20, 20, anchor=NW, image=img) 
+    root.mainloop() 
+     
 
 def buttonsound():
     print("this button used to control your sound settings")
@@ -283,22 +814,22 @@ if __name__ == "__main__":
     buttoneye_Button = Button(gui, text=' EYE', fg='black', bg='white',
                        command=buttoneye, height=1, width=7)
     buttoneye_Button.grid(row=9, column=3)
-    buttonb_Button = Button(gui, text=' ', fg='black', bg='red',
+    buttonb_Button = Button(gui, text='camera ', fg='black', bg='red',
                      command=buttonb, height=1, width=7)
     buttonb_Button.grid(row=10, column=1)
 
-    buttonc_Button = Button(gui, text=' ', fg='black', bg='green',
+    buttonc_Button = Button(gui, text=' game', fg='black', bg='green',
                      command=buttonc, height=1, width=7)
     buttonc_Button.grid(row=10, column=2)
 
-    buttonview_Button = Button(gui, text=' QVIEW', fg='black', bg='yellow',
+    buttonview_Button = Button(gui, text=' player', fg='black', bg='yellow',
                         command=buttonview, height=1, width=7)
     buttonview_Button.grid(row=10, column=3)
-    buttonarc_Button = Button(gui, text=' ARC', fg='black', bg='white',
+    buttonarc_Button = Button(gui, text=' chatbot', fg='black', bg='white',
                        command=buttonarc, height=1, width=7)
     buttonarc_Button.grid(row=11, column=1)
 
-    buttonlists_Button = Button(gui, text=' list', fg='black', bg='blue',
+    buttonlists_Button = Button(gui, text=' time', fg='black', bg='blue',
                          command=buttonlists, height=1, width=7)
     buttonlists_Button.grid(row=11, column=2)
     buttonsleep_Button = Button(gui, text=' sleep', fg='black', bg='white',
@@ -312,9 +843,11 @@ if __name__ == "__main__":
     buttonsound_Button.grid(row=12, column=3)
     double_click_flag =False
     
-    gui.bind('<Button-1>', button1 )  # bind left mouse click
-    gui.bind('<Double-1>', double_click)  # bind double left clicks
+    gui.bind('<Button-1>', button1 )  
+    gui.bind('<Double-1>', double_click)  
+
+
 gui.mainloop()
-app.mainloop()
+
 
 
